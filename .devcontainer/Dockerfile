@@ -47,8 +47,11 @@ RUN addgroup --gid 1001 android && \
 #context to the '/opt' directory within the Docker image. This is a straightforward way to include 
 #these directories and their contents in the image, making them available for use during container runtime.
 # Copy the 'tools' and 'licenses' directories to /opt in the image
-COPY ./tools /opt/tools
-COPY ./licenses /opt/licenses
+
+RUN pwd && ls
+
+COPY tools /opt/tools
+COPY licenses /opt/licenses
 
 #We first use the WORKDIR command to set the working directory to '/opt/android-sdk-linux' inside the Docker 
 #container. This sets the default location where subsequent commands will be executed.
